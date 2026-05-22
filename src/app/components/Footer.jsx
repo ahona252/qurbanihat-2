@@ -4,13 +4,10 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="relative mt-24">
-      {/* Closed the quote and tag properly here */}
-      <div className="mt-12 h-px w-full bg-amber-100" />
+      <div className="mt-12 h-px w-full " />
 
-      {/* Background Layer - Closed the quote and tag properly here too */}
-      <div className="absolute inset-0 -z-10 bg-amber-100" />
+      <div className="absolute inset-0 -z-10 bg-gray-200" />
 
-      {/* Subtle Gradient Glow */}
       <div
         className="absolute inset-0 -z-10 bg-linear-to-tr 
         from-purple-500/5 via-transparent to-blue-500/5 

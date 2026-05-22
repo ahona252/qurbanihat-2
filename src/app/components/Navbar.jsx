@@ -17,18 +17,18 @@ const Navbar = () => {
   }
 
   return (
-    <div className="border-b px-2 bg-amber-100">
+    <div className="border-b px-2 bg-gray-200">
       <nav className="flex justify-between items-center py-3 max-w-7xl mx-auto w-full">
         <div className="flex gap-2 items-center">
           <Image
-            src={"/icon.webp"}
+            src="/icon.webp"
             alt="logo"
             loading="eager"
             width={60}
             height={60}
             className="object-cover h-auto w-auto"
           />
-          <h3 className="font-black text-lg">QurbaniHat</h3>
+          <h3 className="font-black text-2xl">QurbaniHat</h3>
         </div>
 
         <ul className="flex items-center gap-5 text-sm">
