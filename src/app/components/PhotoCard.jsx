@@ -1,61 +1,72 @@
+import { Card, Chip, Separator } from "@heroui/react";
 import Image from "next/image";
-import Link from "next/link";
+import { FaLocationDot, FaScaleBalanced, FaHourglassHalf, FaPaw } from "react-icons/fa6";
 
-const PhotoCard = ({ photo }) => {
-    // Destructuring fields matching your dataset
-    const { id, name, type, breed, age, location, image } = photo;
+export default function PhotoCard({ photo }) {
+  if (!photo) return null;
 
-    return (
-        <div className="border border-gray-200 rounded-2xl shadow-md overflow-hidden bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
-            
-            {/* Image Container */}
-            <div className="relative w-full h-52 bg-gray-100 overflow-hidden">
-                <img 
-                    src={image || "https://placehold.co/400x300?text=No+Image"} 
-                    alt={name} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                
-                {/* Animal Type Badge */}
-                <span className="absolute top-3 left-3 bg-blue-950 text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow">
-                    {type}
-                </span>
-            </div>
+  return (
+    <Card className="border rounded-2xl p-5 bg-white shadow-sm flex flex-col gap-4 hover:shadow-md transition-shadow duration-200">
+      
+      {/* 1. Image Container Layer */}
+      <div className="relative w-full aspect-square bg-slate-50 rounded-xl overflow-hidden">
+        <Image
+          src={photo.image}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          alt={photo.name}
+          className="object-cover transition-transform duration-300 hover:scale-105"
+        />
+        <Chip 
+          size="sm" 
+          variant="flat"
+          className="absolute right-2 top-2 font-bold backdrop-blur-md bg-white/70 text-slate-800"
+        >
+          {photo.category}
+        </Chip>
+      </div>
 
-            {/* Content Details */}
-            <div className="p-4 flex flex-col justify-between flex-grow gap-4">
-                <div>
-                    {/* Meta Info */}
-                    <div className="flex items-center justify-between text-xs text-gray-500 font-medium mb-1">
-                        <span>Breed: {breed}</span>
-                        <span>📍 {location}</span>
-                    </div>
+      {/* 2. Breed & Title Labels */}
+      <div className="space-y-1">
+        <span className="text-[11px] font-bold tracking-wider text-blue-600 uppercase">
+          {photo.breed}
+        </span>
+        <h2 className="font-bold text-lg text-slate-900 leading-snug">
+          {photo.name}
+        </h2>
+      </div>
 
-                    {/* Animal Name */}
-                    <h2 className="text-lg font-bold text-blue-950 line-clamp-1  transition-colors">
-                        {name}
-                    </h2>
-                </div>
-
-                {/* Footer Section with Age & Action Button */}
-                <div className="pt-3 border-t border-gray-100 flex items-center justify-between">
-                    <div className="flex flex-col">
-                        <span className="text-[10px] text-gray-400 font-bold uppercase tracking-wider">Age</span>
-                        <span className="text-sm font-bold text-gray-700">
-                            {age} Yrs
-                        </span>
-                    </div>
-                    
-                    <Link href={`/animal/${id}`}>
-                        <span className="bg-blue-950  text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-colors inline-block cursor-pointer shadow-sm">
-                            View Details
-                        </span>
-                    </Link>
-                </div>
-            </div>
-
+      {/* 3. Main Characteristics Grid (2x2 Layout) */}
+      <div className="grid grid-cols-2 gap-2 text-xs text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-100/50">
+        <div className="flex items-center gap-1.5">
+          <FaScaleBalanced className="text-slate-400 shrink-0" />
+          <span className="truncate">Weight: <strong className="text-slate-800">{photo.weight} kg</strong></span>
         </div>
-    );
-};
 
-export default PhotoCard;
+        <div className="flex items-center gap-1.5">
+          <FaHourglassHalf className="text-slate-400 shrink-0" />
+          <span className="truncate">Age: <strong className="text-slate-800">{photo.age} Yrs</strong></span>
+        </div>
+
+        <div className="flex items-center gap-1.5">
+          <FaPaw className="text-slate-400 shrink-0" />
+          <span className="truncate">Type: <strong className="text-slate-800">{photo.type}</strong></span>
+        </div>
+
+        <div className="flex items-center gap-1.5">
+          <FaLocationDot className="text-red-500 shrink-0" />
+          <span className="truncate font-semibold text-slate-800">{photo.location}</span>
+        </div>
+      </div>
+
+      {/* 4. Description Field */}
+      <div className="pt-1">
+        <h4 className="text-[10px] uppercase font-bold tracking-wider text-slate-400 mb-1">Overview</h4>
+        <p className="text-xs text-slate-500 leading-relaxed line-clamp-2">
+          {photo.description}
+        </p>
+      </div>
+      
+    </Card>
+  );
+}
