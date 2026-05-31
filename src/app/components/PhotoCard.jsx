@@ -6,7 +6,9 @@ export default function PhotoCard({ photo }) {
   if (!photo) return null;
 
   return (
-    <Card className="border rounded-2xl p-5 bg-white shadow-sm flex flex-col gap-4 hover:shadow-md transition-shadow duration-200">
+    // We added 'group' here so that children components (like the image) 
+    // can listen to when the entire Card is hovered.
+    <Card className="group border rounded-2xl p-5 bg-white shadow-sm flex flex-col gap-4 hover:shadow-md transition-shadow duration-200">
       
       {/* 1. Image Container Layer */}
       <div className="relative w-full aspect-square bg-slate-50 rounded-xl overflow-hidden">
@@ -15,7 +17,9 @@ export default function PhotoCard({ photo }) {
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           alt={photo.name}
-          className="object-cover transition-transform duration-300 hover:scale-105"
+          // Fix applied here: changed 'hover:scale-105' to 'group-hover:scale-105'.
+          // This makes the smooth zoom trigger when the *card* is hovered, preventing jitter.
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
         />
         <Chip 
           size="sm" 

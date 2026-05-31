@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { authClient } from "../lib/auth-client";
+import { authClient } from "@/lib/auth-client";
 import { Avatar, Button } from "keep-react";
 
 
@@ -47,10 +47,10 @@ const Navbar = () => {
           {!user && (
             <ul className="flex items-center text-sm gap-5">
               <li>
-                <Link href={"/signup"}>SignUp</Link>
+                <Link href={"/login"}>Login</Link>
               </li>
               <li>
-                <Link href={"/signin"}>SignIn</Link>
+                <button className="bg-blue-950 text-white rounded-2xl p-2.5">Register</button>
               </li>
             </ul>
           )}
@@ -66,7 +66,7 @@ const Navbar = () => {
                 <Avatar.Fallback>{user?.name?.charAt(0)}</Avatar.Fallback>
               </Avatar>
 
-              <Button onClick={handleSignOut} size="sm" variant="danger">SignOut</Button>
+              <Button onClick={handleSignOut} size="sm" variant="danger">LogOut</Button>
             </div>
           )}
         </div>
