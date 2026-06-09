@@ -40,17 +40,18 @@ const LoginPage = () => {
   return (
     <div className="container mx-auto min-h-[80vh] flex justify-center items-center bg-slate-100">
       <div className="p-4 rounded-xl bg-white">
-        <h2 className="font-bold text-3xl text-center mb-6">
-          Login your account
+        <h2 className="font-bold text-3xl text-center text-blue-950 mb-6">
+          Login to your account
         </h2>
 
         <form className="space-y-4" onSubmit={handleSubmit(handleLoginFunc)}>
           <fieldset className="fieldset">
-            <legend className="fieldset-legend">Email</legend>
+            <legend className="fieldset-legend text-blue-950">Email</legend>
             <input
               type="email"
-              className="input"
+              className="input bg-amber-50"
               placeholder="Type here email"
+              autoComplete="off"
               {...register("email", {
                 required: "Email field is required",
               })}
@@ -60,11 +61,12 @@ const LoginPage = () => {
             )}
           </fieldset>
           <fieldset className="fieldset relative">
-            <legend className="fieldset-legend">Password</legend>
+            <legend className="fieldset-legend text-blue-950">Password</legend>
             <input
               type={isShowPassword ? "text" : "password"}
-              className="input"
+              className="input bg-amber-50"
               placeholder="Type here password"
+              autoComplete="new-password"
               {...register("password", {
                 required: "Password field is required",
               })}
@@ -80,10 +82,10 @@ const LoginPage = () => {
             )}
           </fieldset>
 
-          <button className="btn w-full bg-slate-800 text-white">Login</button>
+          <button className="btn w-full bg-blue-950 text-white">Login</button>
         </form>
 
-        <p className="mt-4">
+        <p className="mt-4 text-center text-black">
           Don't have an account?{" "}
           <Link href={"/register"} className="text-blue-500">
             Register

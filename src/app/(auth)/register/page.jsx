@@ -53,7 +53,7 @@ const RegisterPage = () => {
             <legend className="fieldset-legend font-semibold text-slate-700 mb-1">Name</legend>
             <input
               type="text"
-              className={inputFields}
+              className="input bg-amber-50"
               placeholder="Type here name"
               {...register("name", {
                 required: "Name field is required",
@@ -69,7 +69,7 @@ const RegisterPage = () => {
             <legend className="fieldset-legend font-semibold text-slate-700 mb-1">Photo URL</legend>
             <input
               type="text"
-              className={inputFields}
+              className="input bg-amber-50"
               placeholder="Type here photo url"
               {...register("photo", {
                 required: "Photo URL field is required",
@@ -85,7 +85,7 @@ const RegisterPage = () => {
             <legend className="fieldset-legend font-semibold text-slate-700 mb-1">Email</legend>
             <input
               type="email"
-              className={inputFields}
+              className="input bg-amber-50"
               placeholder="Type here email"
               autoComplete="off"
               {...register("email", {
@@ -103,9 +103,9 @@ const RegisterPage = () => {
             <div className="relative">
               <input
                 type={isShowPassword ? "text" : "password"}
-                className={inputFields}
+                className="input bg-amber-50"
                 placeholder="Type here password"
-                autoComplete="off"
+                autoComplete="new-password"
                 {...register("password", {
                   required: "Password field is required",
                 })}
