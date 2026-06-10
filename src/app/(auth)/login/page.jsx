@@ -3,7 +3,7 @@ import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 
 const LoginPage = () => {
   const {
@@ -36,6 +36,15 @@ const LoginPage = () => {
       alert("Signin successful");
     }
   };
+
+    const handleGoogleSignin = async () => {
+      const data = await authClient.signIn.social({
+        provider: "google",
+      });
+  
+      console.log(data, "data");
+    };
+  
 
   return (
     <div className="container mx-auto min-h-[80vh] flex justify-center items-center bg-slate-100">
@@ -91,6 +100,17 @@ const LoginPage = () => {
             Register
           </Link>
         </p>
+                <div className="mt-6 border-t pt-4">
+          <h2 className="font-bold text-lg mb-4 text-center text-slate-800">OR</h2>
+          <button
+            className="btn border border-blue-500 text-blue-500 w-full flex items-center justify-center gap-2 py-2 rounded-md hover:bg-blue-50 transition"
+            onClick={handleGoogleSignin}
+          >
+            <FaGoogle />
+            Login with Google
+          </button>
+        </div>
+
       </div>
     </div>
   );

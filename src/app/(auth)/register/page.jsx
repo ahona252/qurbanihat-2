@@ -3,7 +3,7 @@ import { authClient } from "@/lib/auth-client";
 import Link from "next/link";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaEye, FaEyeSlash, FaGoogle } from "react-icons/fa";
 
 const RegisterPage = () => {
   const {
@@ -14,6 +14,7 @@ const RegisterPage = () => {
 
   const [isShowPassword, setIsShowPassword] = useState(false);
 
+  // 1. Email/Password Registration Function
   const handleRegisterFunc = async (data) => {
     console.log(data, "data");
     const { email, name, photo, password } = data;
@@ -35,6 +36,15 @@ const RegisterPage = () => {
     if (res) {
       alert("Signup successful");
     }
+  }; // Fixed: properly closed handleRegisterFunc here
+
+  // 2. Google Sign-In Function (Moved outside of handleRegisterFunc)
+  const handleGoogleSignin = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+
+    console.log(data, "data");
   };
 
   // Shared classes for all inputs to keep your code clean
@@ -127,6 +137,24 @@ const RegisterPage = () => {
             Register
           </button>
         </form>
+
+        <p className="mt-4 text-center text-black">
+          Don't have an account?{" "}
+          <Link href={"/login"} className="text-blue-500">
+            Login
+          </Link>
+        </p>
+        
+        <div className="mt-6 border-t pt-4">
+          <h2 className="font-bold text-lg mb-4 text-center text-slate-800">OR</h2>
+          <button
+            className="btn border border-blue-500 text-blue-500 w-full flex items-center justify-center gap-2 py-2 rounded-md hover:bg-blue-50 transition"
+            onClick={handleGoogleSignin}
+          >
+            <FaGoogle />
+            Login with Google
+          </button>
+        </div>
       </div>
     </div>
   );

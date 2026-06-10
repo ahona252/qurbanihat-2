@@ -4,7 +4,7 @@ const Extra = () => {
         <div className="max-w-7xl mx-auto px-6 my-16 font-sans">
             {/* Main Header */}
             <div className="text-center mb-12">
-                <h2 className="text-3xl font-extrabold text-blue-900 tracking-tight mb-2">
+                <h2 className="text-3xl font-extrabold text-white tracking-tight mb-2">
                     Qurbani Tips & Top Breeds Ideas 
                 </h2>
                 <p className="text-sm md:text-base text-gray-500 max-w-xl mx-auto">
@@ -16,26 +16,26 @@ const Extra = () => {
                 
                 {/* Left Column: Essential Tips */}
                 <div className="space-y-6">
-                    <h3 className="text-xl font-bold text-blue-800 border-b pb-3 flex items-center gap-2">
+                    <h3 className="text-xl font-bold text-white border-b pb-3 flex items-center gap-2">
                         💡 Haat Buying Tips
                     </h3>
                     
                     <div className="space-y-4">
-                        <div className="p-4 bg-amber-50/60 border border-amber-100 rounded-xl">
+                        <div className="p-4 bg-amber-50 border border-amber-100 rounded-xl">
                             <h4 className="font-bold text-gray-800 text-sm md:text-base mb-1">1. Teeth & Age Verification</h4>
                             <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
                                 Always check the teeth structure. Sacrificial cows must have at least 2 permanent incisors (indicating they are 2+ years old). Goats and sheep must be at least 1 year old.
                             </p>
                         </div>
 
-                        <div className="p-4 bg-amber-50/60 border border-amber-100 rounded-xl">
+                        <div className="p-4 bg-amber-50 border border-amber-100 rounded-xl">
                             <h4 className="font-bold text-gray-800 text-sm md:text-base mb-1">2. Physical Agility & Health</h4>
                             <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
                                 Ensure the animal walks normally without limping. Look for bright, clear eyes, a moist muzzle, and an active stance. Avoid animals that appear unusually sluggish or exhausted.
                             </p>
                         </div>
 
-                        <div className="p-4 bg-amber-50/60 border border-amber-100 rounded-xl">
+                        <div className="p-4 bg-amber-50 border border-amber-100 rounded-xl">
                             <h4 className="font-bold text-gray-800 text-sm md:text-base mb-1">3. Avoid Artificial Fattening</h4>
                             <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
                                 Watch out for animals with an unnaturally bloated appearance or heavy, labored breathing. Organically raised livestock have firm, natural muscle tone and normal movement.
@@ -46,8 +46,8 @@ const Extra = () => {
 
                 {/* Right Column: Top Market Breeds */}
                 <div className="space-y-6">
-                    <h3 className="text-xl font-bold text-blue-800 border-b pb-3 flex items-center gap-2">
-                        👑  Top Demanded Breeds
+                    <h3 className="text-xl font-bold text-white border-b pb-3 flex items-center gap-2">
+                        ✨  Top Demanded Breeds
                     </h3>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
