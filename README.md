@@ -9,7 +9,7 @@
 
 🌻 Essentially, the purpose of a Digital QurbaniHat is to transform a deeply rooted religious tradition into a modern, safe, transparent, and hassle-free e-commerce experience that benefits both the consumer and the agricultural community.
 
-## 💻 LIVE URL: 
+## 💻 LIVE URL: https://qurbanihat-2.vercel.app
 
 ## ✨ KEY FEATURES :
 

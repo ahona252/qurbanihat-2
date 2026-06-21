@@ -5,18 +5,14 @@ import { promises as fs } from 'fs';
 import path from 'path';
 
 export default async function AnimalDetails({ params }) {
-  // Await the parameters from the dynamic URL route
   const { id } = await params;
 
-  // Read data securely directly from the local project file system
   const filePath = path.join(process.cwd(), 'public', 'data.json');
   const fileContents = await fs.readFile(filePath, 'utf8');
   const data = JSON.parse(fileContents);
 
-  // Find the matching item based on the ID parameter
   const animal = data.find((item) => item.id === parseInt(id));
 
-  // Catch-all fall through if id parameter is invalid or not found
   if (!animal) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-gray-800 p-4">
@@ -35,7 +31,6 @@ export default async function AnimalDetails({ params }) {
     <main className="min-h-screen bg-gray-50 text-gray-800 p-4 md:p-12">
       <div className="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8">
         
-        {/* LEFT COLUMN: Image Gallery View */}
         <div className="lg:col-span-7 flex flex-col gap-4">
           <div className="h-72 sm:h-[450px] relative bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm group">
             <Image
@@ -54,10 +49,8 @@ export default async function AnimalDetails({ params }) {
           
         </div>
 
-        {/* RIGHT COLUMN: Professional Information Dashboard */}
         <div className="lg:col-span-5 bg-white rounded-3xl p-6 md:p-8 border border-gray-100 shadow-sm flex flex-col justify-between">
           <div>
-            {/* Title Block */}
             <div className="border-b border-gray-100 pb-5">
               <span className="text-xs font-bold text-blue-900 uppercase tracking-wider bg-blue-50 px-2.5 py-1 rounded-md">
                 {animal.breed}
@@ -70,7 +63,6 @@ export default async function AnimalDetails({ params }) {
               </p>
             </div>
 
-            {/* Spec Metrics Cards Grid */}
             <div className="grid grid-cols-2 gap-4 my-6">
               <div className="bg-gray-50 p-3.5 rounded-2xl border border-gray-100/50">
                 <span className="block text-[10px] uppercase font-bold tracking-wider text-gray-400">Live Weight</span>
@@ -82,7 +74,7 @@ export default async function AnimalDetails({ params }) {
               </div>
             </div>
 
-            {/* Description Paragraph */}
+            {/* Description  */}
             <div className="my-6">
               <h4 className="text-xs uppercase font-bold tracking-wider text-gray-400 mb-2">Seller Overview</h4>
               <p className="text-sm text-gray-600 leading-relaxed bg-gray-50/50 p-4 rounded-2xl border border-gray-50">

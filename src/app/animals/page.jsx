@@ -20,7 +20,6 @@ export default function AnimalsPage() {
     address: ""
   });
 
-  // Fetch data directly from public/data.json when the page loads
   useEffect(() => {
     fetch('/data.json')
       .then((res) => res.json())
@@ -37,15 +36,12 @@ export default function AnimalsPage() {
   const handleBookingSubmit = (e) => {
     e.preventDefault();
     
-    // 1. Show the success toast
     setShowToast(true);
     
-    // 2. Reset everything back to defaults
     setFormData({ name: "", email: "", phone: "", address: "" });
     setShowBookingSection(false);
     setActiveAnimal(null);
     
-    // 3. Dismiss toast notification after 3 seconds
     setTimeout(() => {
       setShowToast(false);
     }, 3000);
@@ -53,13 +49,12 @@ export default function AnimalsPage() {
 
   const handleBackToMarketplace = () => {
     setActiveAnimal(null);
-    setShowBookingSection(false); // Hide the form frame for the next selection
+    setShowBookingSection(false); 
   };
 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-800 p-4 sm:p-6 md:p-12 relative">
       
-      {/* Dynamic Success Toast Notification */}
       {showToast && (
         <div className="fixed top-5 left-4 right-4 sm:left-auto sm:right-5 z-50 flex items-center gap-2 bg-emerald-600 text-white px-5 py-3 rounded-xl shadow-xl font-medium text-sm transition-all animate-bounce max-w-md mx-auto sm:mx-0">
           <FaCircleCheck className="text-lg shrink-0" />
@@ -69,7 +64,6 @@ export default function AnimalsPage() {
 
       <div className="max-w-6xl mx-auto">
         
-        {/* VIEW 1: ANIMAL DETAILS SCREEN */}
         {activeAnimal ? (
           <div className="max-w-3xl mx-auto space-y-6">
             {/* Back Button */}
@@ -106,7 +100,6 @@ export default function AnimalsPage() {
 
                   <p className="text-xs sm:text-sm text-slate-500 leading-relaxed">{activeAnimal.description}</p>
 
-                  {/* Core Metrics Grid */}
                   <div className="grid grid-cols-2 gap-2 text-[11px] sm:text-xs text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-100">
                     <div className="flex items-center gap-1.5 min-w-0">
                       <FaScaleBalanced className="text-slate-400 shrink-0" />
@@ -127,7 +120,7 @@ export default function AnimalsPage() {
                   </div>
                 </div>
 
-                {/* Price and The "Book Now" Trigger Button */}
+                {/* Price and Book Now Button */}
                 <div className="pt-4 border-t border-slate-100 mt-4 flex flex-wrap sm:flex-nowrap items-center justify-between gap-4">
                   <div>
                     <span className="block text-[10px] uppercase text-slate-400 font-bold">Total Valuation Price</span>
@@ -146,7 +139,6 @@ export default function AnimalsPage() {
               </div>
             </div>
 
-            {/* Inline Booking Form Frame (Only visible after clicking "Book Now") */}
             {showBookingSection && (
               <Card className="bg-white border rounded-2xl p-4 sm:p-6 shadow-xs flex flex-col gap-4 animate-fade-in">
                 <div>
@@ -155,7 +147,7 @@ export default function AnimalsPage() {
                 </div>
 
                 {!isLoggedIn ? (
-                  /* Login Required Panel Layout */
+                  /* Login Required  */
                   <div className="flex flex-col items-center justify-center p-6 border border-dashed border-slate-200 rounded-xl bg-slate-50 text-center gap-3">
                     <div className="p-3 bg-blue-50 text-blue-600 rounded-full">
                       <FaLock size={16} />
@@ -174,7 +166,6 @@ export default function AnimalsPage() {
                     </Button>
                   </div>
                 ) : (
-                  /* Clean Form Display with Clear Labels and Light Styling */
                   <form onSubmit={handleBookingSubmit} className="flex flex-col gap-5">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div className="flex flex-col gap-1.5">
@@ -267,9 +258,7 @@ export default function AnimalsPage() {
           </div>
         ) : (
           
-          /* VIEW 2: THE PRIMARY MARKETPLACE CARD GRID LIST */
           <>
-            {/* Clean Header */}
             <header className="mb-10 text-center ">
               <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-blue-950">
                 Online Marketplace
@@ -279,7 +268,6 @@ export default function AnimalsPage() {
               </p>
             </header>
 
-            {/* Card Grid Layout */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {animals.map((animal) => (
                 <div key={animal.id} className="bg-white rounded-2xl overflow-hidden border border-slate-100 flex flex-col justify-between shadow-xs">
@@ -298,7 +286,6 @@ export default function AnimalsPage() {
                     </span>
                   </div>
 
-                  {/* Content Segment */}
                   <div className="p-5 flex-1">
                     <div className='flex justify-between items-center gap-2'>       
                       <span className="text-xs font-semibold text-black truncate">{animal.breed}</span>
@@ -307,7 +294,6 @@ export default function AnimalsPage() {
                     <h3 className="text-lg font-bold text-blue-900 mt-0.5">{animal.name}</h3>
                     <p className="text-xs text-slate-500 mt-2 line-clamp-2">{animal.description}</p>
                     
-                    {/* Metrics Info Row */}
                     <div className="flex gap-4 mt-4 pt-3 border-t border-slate-100 text-xs text-slate-600">
                       <div>Weight: <span className="font-bold text-slate-800">{animal.weight} kg</span></div>
                       <div>Age: <span className="font-bold text-slate-800">{animal.age} Years</span></div>

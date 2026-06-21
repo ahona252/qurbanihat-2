@@ -15,7 +15,7 @@ const RegisterPage = () => {
 
   const [isShowPassword, setIsShowPassword] = useState(false);
 
-  // Email/Password Registration Function
+  // Email/Password Registration 
   const handleRegisterFunc = async (data) => {
     console.log(data, "data");
     const { email, name, photo, password } = data;
@@ -31,13 +31,12 @@ const RegisterPage = () => {
 
     console.log(res, error);
     
-    // 2. REPLACED ALERTS WITH TOAST MESSAGES
     if (error) {
       toast.error(error.message || "Something went wrong. Please try again.");
     }
 
     if (res) {
-      toast.success("Signup successful! Welcome aboard.");
+      toast.success("Signup successful! Welcome.");
     }
   }; 
 

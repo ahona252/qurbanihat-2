@@ -5,13 +5,10 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="relative mt-16 sm:mt-24 w-full overflow-hidden">
-      {/* Structural Separator */}
       <div className="h-px w-full" />
 
-      {/* Background Amber Wrapper */}
       <div className="absolute inset-0 -z-10 bg-amber-50" />
 
-      {/* Decorative Blur Background Graphic */}
       <div
         className="absolute inset-0 -z-10 bg-gradient-to-tr 
         from-amber-500/5 via-transparent to-blue-500/5 
@@ -21,8 +18,6 @@ const Footer = () => {
       {/* Content Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
         
-        {/* Top Layout Grid */}
-        {/* Adjusted Grid transitions: 1 column on mobile, 2 columns on small tablets, 3 on large tablets, 4 on desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 sm:gap-12 text-center sm:text-left">
           
           {/* Brand & About Section */}
@@ -141,7 +136,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Dynamic Horizontal Divider Line */}
         <div className="mt-12 h-px w-full bg-gradient-to-r from-transparent via-amber-200 to-transparent" />
 
         {/* Bottom Copyright & Legal Links Bar */}

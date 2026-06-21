@@ -27,7 +27,6 @@ const LoginPage = () => {
 
     console.log(res, error);
 
-    // 2. REPLACED WITH TOASTIFY MESSAGES
     if (error) {
       toast.error(error.message || "Failed to sign in. Please try again.");
     }

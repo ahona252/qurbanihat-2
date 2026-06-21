@@ -55,7 +55,6 @@ const Navbar = () => {
           </svg>
         </button>
 
-        {/* Navigation Actions Menu */}
         <div className={`
           fixed md:static inset-x-0 top-0 pt-24 pb-10 px-6 md:p-0
           bg-amber-100 md:bg-transparent shadow-lg md:shadow-none
@@ -64,7 +63,6 @@ const Navbar = () => {
           ${isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-full md:opacity-100 md:translate-y-0 pointer-events-none md:pointer-events-auto"}
         `}>
           
-          {/* Main Links - Profile Option Removed */}
           <ul className="flex flex-col md:flex-row md:items-center md:justify-center flex-1 gap-1 md:gap-8 text-base md:text-sm font-semibold text-blue-950">
             <li>
               <Link href={"/"} onClick={closeMenu} className="block py-2 md:py-0 hover:text-blue-800 transition-colors">Home</Link>
@@ -123,7 +121,6 @@ const Navbar = () => {
                   </div>
                 </div>
 
-                {/* FIXED: Replaced keep-react button with standard Tailwind HTML button for reliable display */}
                 <button 
                   onClick={handleSignOut} 
                   className="bg-blue-950 text-white rounded-full px-4 py-3 hover:bg-blue-600 transition-all text-xs font-semibold whitespace-nowrap ml-4"
@@ -136,7 +133,6 @@ const Navbar = () => {
 
         </div>
 
-        {/* Backdrop overlay for mobile menu context */}
         {isOpen && (
           <div className="fixed inset-0 bg-black/30 z-30 md:hidden" onClick={toggleMenu}></div>
         )}
